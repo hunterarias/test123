@@ -63,18 +63,12 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom blue colors
-				wellness: {
-					50: '#e6f1fa',
-					100: '#cce3f4',
-					200: '#99c8e9',
-					300: '#66acde',
-					400: '#3391d3',
-					500: '#0075c8',
-					600: '#005ea0',
-					700: '#004678',
-					800: '#002f50',
-					900: '#001728',
+				theme: {
+					blue: '#4464E3',
+					red: '#e94235',
+					green: '#34a853',
+					darkblue: '#3651C3',
+					darkgreen: '#2d9348',
 				}
 			},
 			borderRadius: {
@@ -99,26 +93,16 @@ export default {
 						height: '0'
 					}
 				},
-        'fade-in': {
-          '0%': {
-            opacity: '0',
-            transform: 'translateY(10px)'
-          },
-          '100%': {
-            opacity: '1',
-            transform: 'translateY(0)'
-          }
-        }
+				'pulse-scale': {
+					'0%, 100%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(1.05)' },
+				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-        'fade-in': 'fade-in 0.5s ease-out forwards'
-			},
-      backgroundImage: {
-        'blue-gradient': 'linear-gradient(to right, #0075c8, #004678)',
-        'blue-light-gradient': 'linear-gradient(90deg, hsla(216, 41%, 79%, 1) 0%, hsla(220, 78%, 29%, 1) 100%)',
-      }
+				'pulse-scale': 'pulse-scale 2s infinite'
+			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

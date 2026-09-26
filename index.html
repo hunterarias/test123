@@ -1,92 +1,62 @@
-
 <!DOCTYPE html>
 <html lang="it">
   <head>
-
-    
-<script>
-  // Lazy load Iubenda after user interaction
-  let iubendaLoaded = false;
-  
-  function loadIubenda() {
-    if (iubendaLoaded) return;
-    iubendaLoaded = true;
-    
-    // FIRST: Set the configuration
-    window._iub = window._iub || [];
-    window._iub.csConfiguration = {
-      "siteId": 3976504,
-      "cookiePolicyId": 46320706,
-      "lang": "it",
-      "storage": {
-        "useSiteId": true
-      }
-    };
-    
-    // THEN: Load the scripts in correct order
-    // Load autoblocking script first
-    const script1 = document.createElement('script');
-    script1.src = 'https://cs.iubenda.com/autoblocking/3976504.js';
-    script1.async = true;
-    document.head.appendChild(script1);
-    
-    // Load CS script second
-    const script2 = document.createElement('script');
-    script2.src = 'https://cdn.iubenda.com/cs/iubenda_cs.js';
-    script2.charset = 'UTF-8';
-    script2.async = true;
-    document.head.appendChild(script2);
-  }
-  
-  // Load Iubenda after 3 seconds or on first interaction
-  const interactions = ['mousedown', 'keydown', 'touchstart', 'scroll'];
-  
-  function triggerLoad() {
-    loadIubenda();
-    // Remove all listeners after loading
-    interactions.forEach(event => {
-      document.removeEventListener(event, triggerLoad, { passive: true });
-    });
-  }
-  
-  // Add interaction listeners
-  interactions.forEach(event => {
-    document.addEventListener(event, triggerLoad, { passive: true });
-  });
-  
-  // Also load after 3 seconds if no interaction
-  setTimeout(loadIubenda, 3000);
-</script>
-
+        <script type="text/javascript">
+        var _iub = _iub || [];
+        _iub.csConfiguration = {"siteId":3976504,"cookiePolicyId":46320706,"lang":"it","storage":{"useSiteId":true}};
+        </script>
+        <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3976504.js" defer></script>
+        <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+            
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Migliori Gel Naturali per la Virilità Maschile</title>
-    <meta name="description" content="I Migliori Gel Naturali per la Virilità Maschile - Confronta i migliori gel per il benessere maschile e scegli quello giusto per te!" />
-    <meta name="author" content="Benessere Maschile Experts" />
+    <title>Migliori integratori Naturali per il Vigore Maschile</title>
+    <meta name="description" content="Confronto dei migliori integratori naturali per il benessere maschile: ingredienti, efficacia e consigli per una scelta consapevole." />
+    <meta name="author" content="Esperti in Salute Maschile" />
 
-    <link rel="icon" href="/lovable-uploads/bec943c9-c6d1-4181-bd88-a3790bed058b.png" type="image/png">
+    <!-- Preload favicon and primary OG image for faster loading -->
+    <link rel="preload" as="image" href="https://www.potenzamaschile.net/wp-content/uploads/2025/04/favicon-min.png" type="image/png" />
+    <link rel="preload" as="image" href="https://www.potenzamaschile.net/wp-content/smush-avif/2025/04/anteprima-min.png.avif" type="image/png" />
 
-    <meta property="og:title" content="Migliori Gel Naturali per la Virilità Maschile" />
-    <meta property="og:description" content="I Migliori Gel Naturali per la Virilità Maschile - Confronta i migliori gel per il benessere maschile e scegli quello giusto per te!" />
+    <meta property="og:title" content="Migliori integratori Naturali per il Vigore Maschile - Confronto e Recensioni 2025" />
+    <meta property="og:description" content="Una guida indipendente ai migliori integratori naturali per sostenere il benessere maschile. Ingredienti, efficacia e consigli per scegliere consapevolmente." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/lovable-uploads/bfae8aef-91f4-49cf-a1b3-ad97a9fa42f7.png" />
-    
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Migliori Gel Naturali per la Virilità Maschile" />
-    <meta name="twitter:description" content="I Migliori Gel Naturali per la Virilità Maschile - Confronta i migliori gel per il benessere maschile e scegli quello giusto per te!" />
-    <meta name="twitter:image" content="/lovable-uploads/bfae8aef-91f4-49cf-a1b3-ad97a9fa42f7.png" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta property="og:image" content="https://www.potenzamaschile.net/wp-content/smush-avif/2025/04/anteprima-min.png.avif" />
 
-      
-</head>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Migliori integratori Naturali per il Vigore Maschile – Guida 2025">
+    <meta name="twitter:description" content="Guida completa e indipendente agli integratori naturali per il benessere maschile. Confronto, ingredienti e consigli per una scelta consapevole.">
+    <meta name="twitter:image" content="https://www.potenzamaschile.net/wp-content/smush-avif/2025/04/anteprima-min.png.avif" />
+    <meta name="twitter:url" content="https://integratori.potenzamaschile.net/">
+ 
+    <link rel="stylesheet" href="/files/font.css" media="print" onload="this.media='all'">
+
+    <!-- Updated favicon to new uploaded image -->
+    <link rel="icon" href="https://www.potenzamaschile.net/wp-content/uploads/2025/04/favicon-min.png" type="image/png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Integratori Potenza Maschile",
+      "url": "https://integratori-potenzamaschile.lovable.app/",
+      "inLanguage": "it-IT"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Integratori Potenza Maschile",
+      "url": "https://integratori-potenzamaschile.lovable.app/",
+      "logo": "https://www.potenzamaschile.net/wp-content/uploads/2025/04/favicon-min.png"
+    }
+    </script>
+  </head>
 
   <body>
     <div id="root"></div>
-
-<script>
+    <script>
         (function() {
             // Function to update links
             function updateLinks(gclid) {
@@ -158,15 +128,14 @@
   gtag('event', 'page_view', {
     page_location: window.location.href,
     page_path: window.location.pathname + window.location.search,
-    page_title: document.title,
-    page_hostname: window.location.hostname
+    page_title: document.title
   });
     </script>
-    
-    <!-- Event snippet: Acquisto test 8 (AW-16903356823) — conversione asincrona sui
-         click delle CTA, senza toccare il flusso redirect. Fuori dal blocco
-         iubenda: accoda solo su dataLayer, l'invio avviene soltanto se gtag
-         e' attivo (consenso dato). -->
+
+    <!-- Event snippet: Acquisto test 4 xyz (AW-16903356823) — conversione
+         asincrona sui click verso lo shop, senza toccare il flusso redirect.
+         Fuori dal blocco iubenda: accoda solo su dataLayer, l'invio avviene
+         soltanto se gtag e' attivo (consenso dato). -->
     <script>
       (function () {
         function reportConversion() {
@@ -174,7 +143,7 @@
             window.dataLayer = window.dataLayer || [];
             var g = (typeof window.gtag === 'function') ? window.gtag : function () { window.dataLayer.push(arguments); };
             g('event', 'conversion', {
-              'send_to': 'AW-16903356823/xi0rCNnwm9gcEJeDk_w-',
+              'send_to': 'AW-16903356823/l1J_CO7xmdgcEJeDk_w-',
               'transaction_id': '',
               'transport_type': 'beacon'
             });
@@ -182,12 +151,12 @@
         }
         document.addEventListener('click', function (e) {
           var t = e.target;
-          var a = t && t.closest ? t.closest('a[href*="click.potenzamaschile.net"]') : null;
+          var a = t && t.closest ? t.closest('a[href*="trackflow.it"]') : null;
           if (a) reportConversion();
         }, true);
       })();
     </script>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <!-- IMPORTANT: DO NOT11 REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
