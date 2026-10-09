@@ -50,7 +50,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, recommended = false 
       return (
         <>
           <p className="text-sm leading-relaxed font-medium text-gray-800 mb-4 text-center">
-            Tauro Plus è un integratore maschile naturale al 100% formulato per supportare <span className="font-bold text-black">le performance dell'uomo nei momenti che contano</span>. E' stato scelto da molti uomini perchè è in grado di supportare il flusso sanguigno, l'energia, la forza e la resistenza. Ideale per gli uomini che vogliono sentirsi sempre al top in modo naturale!
+            Tauro Plus è un integratore per uomo formulato con ingredienti di origine naturale, pensato per chi cerca un supporto per forza, durata e resistenza.
           </p>
           <div className="flex items-center gap-3 mb-4 p-3 rounded-md border border-amber-300 bg-gradient-to-r from-amber-50 to-yellow-50 shadow-sm">
             <Shield className="w-10 h-10 text-amber-500 flex-shrink-0" strokeWidth={2.5} />

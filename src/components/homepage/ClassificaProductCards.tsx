@@ -8,13 +8,14 @@ import {
   BoxIcon,
   Scale,
   Zap,
-  
+
   Leaf,
   Tag,
   Percent,
   Banknote,
   ShieldCheck,
   ShoppingCart,
+  Crown,
 } from 'lucide-react';
 
 interface Product {
@@ -126,12 +127,12 @@ const getMeta = (name: string): Meta => {
   };
 };
 
-const renderStars = (ratingLabel: string = '4.8/5') => (
+const renderStars = (ratingLabel: string = '4.8/5', sizeClass: string = 'w-4 h-4', labelClass: string = 'text-xs') => (
   <div className="flex items-center justify-center gap-0.5">
     {[...Array(5)].map((_, i) => (
-      <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+      <Star key={i} className={`${sizeClass} text-yellow-400 fill-yellow-400`} />
     ))}
-    <span className="ml-1.5 text-xs font-bold text-gray-700">{ratingLabel}</span>
+    <span className={`ml-1.5 font-bold text-gray-700 ${labelClass}`}>{ratingLabel}</span>
   </div>
 );
 
@@ -142,11 +143,11 @@ const ClassificaProductCards: React.FC<Props> = ({ products }) => {
         id="classifica"
         className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-3 px-2 scroll-mt-20 leading-tight"
       >
-        <span className="block lg:whitespace-nowrap text-xl sm:text-2xl md:text-3xl lg:text-3xl mb-1">
+        <span className="block text-xl sm:text-2xl md:text-3xl lg:text-3xl mb-1">
           <span className="text-theme-blue block sm:inline">Non Fare Scelte a Caso!</span>{' '}
-          <span className="text-black font-bold block sm:inline">Confronta e Acquista dai Siti Ufficiali!</span>
+          <span className="text-black font-bold block sm:inline">Scopri Tauro Plus e confrontalo con le alternative</span>
         </span>
-        <span className="text-theme-blue">Classifica 3 Top Integratori Naturali per Uomo</span>
+        <span className="text-theme-blue">Caratteristiche, ingredienti e prezzo: tutto quello che devi sapere!</span>
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
@@ -167,7 +168,7 @@ const ClassificaProductCards: React.FC<Props> = ({ products }) => {
             >
               {/* Top ribbon */}
               {product.name === 'Tauro Plus' ? (
-                <div className="absolute top-2 right-2 z-10 bg-theme-green text-white text-xs sm:text-xs font-extrabold uppercase tracking-wide px-3 py-1.5 sm:px-2.5 sm:py-1 rounded-md shadow-md ring-1 ring-white/30">
+                <div className="absolute top-2 right-2 z-10 bg-theme-green text-white text-[11px] sm:text-xs font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-md shadow-md ring-1 ring-white/30">
                   BEST SELLER -40% OGGI
                 </div>
               ) : (
@@ -193,15 +194,56 @@ const ClassificaProductCards: React.FC<Props> = ({ products }) => {
                 )}
 
                 {/* Image */}
-                <div className="relative flex justify-center items-center mb-2 min-h-[140px]">
-                  <img
-                    src={product.image}
-                    alt={`${product.name} - integratore naturale per benessere maschile`}
-                    width={product.imageWidth || 400}
-                    height={product.imageHeight || 600}
-                    loading="lazy"
-                    className="h-32 sm:h-36 object-contain"
-                  />
+                <div className={`relative flex justify-center items-center mb-2 ${product.name === 'Tauro Plus' ? 'min-h-[150px] sm:min-h-[180px] mb-4' : 'min-h-[140px]'}`}>
+                  {/* Gruppo medaglia + confezione (solo Tauro Plus) - solo CSS, zero peso */}
+                  {product.name === 'Tauro Plus' ? (
+                    <div className="relative flex items-center justify-center">
+                      {/* Alone verde leggero dietro al prodotto */}
+                      <div
+                        aria-hidden="true"
+                        className="absolute z-0 w-36 h-36 sm:w-48 sm:h-48 rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.35)_0%,rgba(187,247,208,0.2)_55%,rgba(255,255,255,0)_78%)]"
+                      />
+                      {/* Medaglia a sinistra, parzialmente sovrapposta al flacone */}
+                      <div className="relative z-20 -mr-4 sm:-mr-5 shrink-0 w-[66px] sm:w-[70px] aspect-square">
+                        {/* Nastro verde sotto la medaglia */}
+                        <div
+                          aria-hidden="true"
+                          className="absolute -bottom-3 left-1/2 w-4 h-7 bg-theme-green shadow-sm"
+                          style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% 72%, 0 100%)', transform: 'translateX(-70%) rotate(10deg)' }}
+                        />
+                        <div className="relative w-full h-full rounded-full bg-gradient-to-br from-[#F7D774] via-[#E9B94C] to-[#C9962B] ring-2 ring-[#B8860B]/60 shadow-md flex flex-col items-center justify-center text-center px-1.5">
+                          {/* Doppio anello esterno (effetto corona d'alloro) */}
+                          <div aria-hidden="true" className="absolute inset-1 rounded-full border border-[#B8860B]/40" />
+                          <Crown className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#7A5800]" strokeWidth={2.5} aria-hidden="true" />
+                          <span className="mt-0.5 text-[9px] sm:text-[9.5px] font-extrabold uppercase leading-[1.1] tracking-tight text-[#1F2937]">
+                            Il Più<br />Apprezzato
+                          </span>
+                          <div className="mt-0.5 flex items-center gap-[1px]" aria-hidden="true">
+                            {[...Array(5)].map((_, i) => (
+                              <Star key={i} className="w-1.5 h-1.5 text-[#7A5800] fill-[#7A5800]" />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                      <img
+                        src={product.image}
+                        alt={`${product.name} - integratore naturale per benessere maschile`}
+                        width={product.imageWidth || 400}
+                        height={product.imageHeight || 600}
+                        loading="lazy"
+                        className="relative z-10 h-32 sm:h-[154px] w-auto object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <img
+                      src={product.image}
+                      alt={`${product.name} - integratore naturale per benessere maschile`}
+                      width={product.imageWidth || 400}
+                      height={product.imageHeight || 600}
+                      loading="lazy"
+                      className="h-32 sm:h-36 object-contain"
+                    />
+                  )}
                   {meta.showSavings && (
                     <div className="absolute right-0 top-8 bg-green-100 text-green-700 font-semibold text-[11px] px-2 py-0.5 rounded-md border border-green-300">
                       {meta.showSavings}
@@ -210,15 +252,21 @@ const ClassificaProductCards: React.FC<Props> = ({ products }) => {
                 </div>
 
                 {/* Name */}
-                <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-900 mt-1">
+                <h3 className={`font-bold text-center text-gray-900 mt-1 ${product.name === 'Tauro Plus' ? 'text-[23px] sm:text-[31px]' : 'text-xl sm:text-2xl'}`}>
                   {product.name}
                 </h3>
-                <div className="mt-1">{renderStars(product.name === 'Tauro Plus' ? '5/5' : '4.8/5')}</div>
+                <div className="mt-1">
+                  {renderStars(
+                    product.name === 'Tauro Plus' ? '5/5' : '4.8/5',
+                    product.name === 'Tauro Plus' ? 'w-4 h-4 sm:w-5 sm:h-5' : 'w-4 h-4',
+                    product.name === 'Tauro Plus' ? 'text-xs sm:text-base' : 'text-xs'
+                  )}
+                </div>
 
                 {/* Tagline */}
-                <div className={`flex items-center justify-center gap-1.5 mt-2 ${meta.taglineColor}`}>
+                <div className={`flex items-center justify-center gap-1.5 mt-2 ${meta.taglineColor} ${product.name === 'Tauro Plus' ? 'bg-green-100 rounded-full px-3 py-1 w-fit mx-auto' : ''}`}>
                   {meta.taglineIcon}
-                  <span className="text-[17px] sm:text-sm font-bold sm:font-semibold text-center leading-snug">
+                  <span className={`${product.name === 'Tauro Plus' ? 'text-[15px] sm:text-base font-bold whitespace-nowrap' : 'text-[17px] sm:text-sm font-bold sm:font-semibold'} text-center leading-snug`}>
                     {meta.tagline}
                   </span>
                 </div>
@@ -227,7 +275,7 @@ const ClassificaProductCards: React.FC<Props> = ({ products }) => {
                 <p className="text-[15px] sm:text-sm text-gray-700 leading-relaxed text-center mt-3">
                   {product.name === 'Tauro Plus' ? (
                     <>
-                      Tauro Plus è un integratore maschile naturale al 100% formulato per supportare <strong className="font-bold text-gray-900">le performance dell'uomo nei momenti che contano</strong>. E' stato scelto da molti uomini perchè è in grado di supportare il flusso sanguigno, l'energia, la forza e la resistenza. Ideale per gli uomini che vogliono sentirsi sempre al top in modo naturale!
+                      Tauro Plus è un integratore per uomo formulato con ingredienti di origine naturale, pensato per chi cerca un supporto per forza, durata e resistenza.
                     </>
                   ) : product.description}
                 </p>
